@@ -1,0 +1,39 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://rvimca08.github.io/portfolio",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.2",
+    "aos": "^2.3.4",
+    "clsx": "^2.1.1",
+    "emailjs-com": "^3.2.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.7.0",
+    "react-router-dom": "^7.18.1",
+    "react-scroll": "^1.9.3",
+    "react-type-animation": "^3.2.0",
+    "tailwindcss": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "eslint": "^10.6.0",
+    "gh-pages": "^6.3.0",
+    "oxlint": "^1.71.0",
+    "prettier": "^3.9.4",
+    "vite": "^8.1.1"
+  }
+}
