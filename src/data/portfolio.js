@@ -1,88 +1,162 @@
+import fullstackImg from '../assets/fullstack.jpg'
+import reviewVideo from '../assets/review.mp4'
+import portfolioImg from '../assets/portfolio.avif'
+import stackImg from '../assets/stack2.jpg'
+import fsdImg from '../assets/fsdwebp.webp'
+
+export const media = {
+  fullstack: fullstackImg,
+  review: reviewVideo,
+  portfolio: portfolioImg,
+  stack: stackImg,
+  fsd: fsdImg,
+}
+
 export const profile = {
-  name: 'Ravi',
-  title: 'Full Stack Developer',
-  tagline: 'I build clean, fast web experiences that solve real problems.',
+  name: 'Ravichandran',
+  title: 'Software Developer',
+  roles: ['Full Stack Developer', 'Backend Engineer', 'Mobile App Developer'],
+  headline: 'Building Scalable',
+  headlineAccent: 'Digital Experiences',
+  quote:
+    'Hi, I\'m Ravichandran — a Software Developer crafting modern, high-performance applications with Laravel, MERN stack, and React Native.',
   email: 'rvimca08@gmail.com',
-  location: 'India',
-  availability: 'Open to opportunities',
+  phone: '6379517503',
+  phoneDisplay: '+91 63795 17503',
+  location: 'Chennai, India',
+  company: 'The NexGen Tech',
   social: {
-    github: 'https://github.com/rvimca08',
-    linkedin: 'https://linkedin.com/in/rvimca08',
-    twitter: '',
+    github: 'https://github.com/ravidev24/',
+    linkedin: 'https://www.linkedin.com/in/ravichandran-m-432sa/',
+    whatsapp:
+      'https://wa.me/916379517503?text=Hi%20Ravichandran%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you.',
   },
   resumeUrl: '#',
 }
 
 export const about = {
+  eyebrow: 'About Me',
+  title: 'Engineering Real-World Solutions',
   paragraphs: [
-    'I am a developer focused on crafting responsive, accessible, and performant web applications. I enjoy turning complex ideas into intuitive digital products.',
-    'From frontend interfaces to backend APIs, I care about code quality, user experience, and shipping work that makes a measurable impact.',
+    'Software Developer with 2+ years of experience in full stack, backend, and mobile development — building CMS platforms, workflow automation, and real-time enterprise systems.',
+    'I design scalable REST APIs, OAuth/JWT authentication, microservices, and Redis-powered applications that are secure, maintainable, and production-ready.',
   ],
-  highlights: [
-    { label: 'Experience', value: '3+ Years' },
-    { label: 'Projects', value: '15+' },
-    { label: 'Technologies', value: '20+' },
-  ],
+  image: stackImg,
 }
 
-export const skills = [
+export const stats = [
+  { value: '2+', label: 'Years Experience', description: 'Full stack, backend & mobile development' },
+  { value: '10+', label: 'Projects Completed', description: 'CMS, workflow, MERN & mobile apps' },
+]
+
+export const services = [
   {
-    category: 'Frontend',
-    items: ['React', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3'],
+    number: '01',
+    category: 'Engineering',
+    title: 'Full Stack Development',
+    description:
+      'End-to-end web applications with Laravel, React.js, and Node.js — from database design to polished UI.',
   },
   {
+    number: '02',
     category: 'Backend',
-    items: ['Node.js', 'Express', 'PHP', 'REST APIs', 'MySQL', 'MongoDB'],
+    title: 'REST API & Microservices',
+    description:
+      'Scalable APIs, OAuth security, RBAC, Redis caching, and modular microservices for enterprise workflows.',
   },
   {
-    category: 'Tools',
-    items: ['Git', 'GitHub', 'Vite', 'Figma', 'VS Code', 'Docker'],
+    number: '03',
+    category: 'Mobile',
+    title: 'React Native Applications',
+    description:
+      'Cross-platform mobile apps with React Native CLI & Expo, integrated with Laravel backends and real-time sync.',
   },
+  {
+    number: '04',
+    category: 'Real-Time',
+    title: 'Workflow Automation',
+    description:
+      'Multi-level approval engines with WebSockets, Redis Pub/Sub, and live dashboards for business operations.',
+  },
+]
+
+export const experience = [
+  {
+    number: '01',
+    role: 'Software Developer',
+    company: 'The NexGen Tech, Chennai',
+    period: 'Apr 2024 – Present',
+    summary:
+      'Building enterprise CMS platforms, approval workflows, and microservices with Laravel, React.js, Redis, and WebSockets.',
+    tags: ['Laravel', 'React.js', 'MySQL', 'Redis', 'OAuth', 'WebSockets'],
+  },
+]
+
+export const technicalSkills = [
+  'Laravel',
+  'PHP',
+  'React.js',
+  'Node.js',
+  'Express.js',
+  'MySQL',
+  'MongoDB',
+  'Redis',
+  'React Native',
+  'JavaScript',
+  'REST APIs',
+  'OAuth',
+  'JWT',
+  'WebSockets',
+  'Git',
+  'GitHub',
+  'Bootstrap',
+  'Tailwind CSS',
 ]
 
 export const projects = [
   {
-    title: 'E-Commerce Platform',
+    title: 'CMS Platform',
     description:
-      'A full-stack online store with product catalog, cart, checkout flow, and admin dashboard.',
-    tags: ['React', 'Node.js', 'MongoDB'],
+      'Enterprise content management platform with dynamic modules, admin controls, and role-based access. OAuth-secured APIs with Redis caching for high performance.',
+    tags: ['Laravel', 'React.js', 'MySQL', 'OAuth', 'Redis'],
+    image: portfolioImg,
     liveUrl: '#',
     githubUrl: '#',
-    featured: true,
   },
   {
-    title: 'Task Management App',
+    title: 'Approval Workflow Automation',
     description:
-      'Collaborative task board with drag-and-drop, real-time updates, and team workspaces.',
-    tags: ['React', 'Firebase', 'Tailwind'],
+      'Configurable multi-level approval engine with real-time notifications via WebSockets and Redis Pub/Sub, plus live React dashboards for tracking.',
+    tags: ['Laravel', 'React.js', 'WebSockets', 'Redis'],
+    image: fsdImg,
     liveUrl: '#',
     githubUrl: '#',
-    featured: true,
   },
   {
-    title: 'Portfolio Website',
+    title: 'Chennai Parking System',
     description:
-      'Personal portfolio with smooth animations, dark theme, and contact form integration.',
-    tags: ['React', 'Vite', 'EmailJS'],
+      'MERN stack parking management with vehicle tracking, slot management, reservations, and responsive admin dashboards.',
+    tags: ['MongoDB', 'Express.js', 'React.js', 'Node.js'],
+    image: fullstackImg,
     liveUrl: '#',
     githubUrl: '#',
-    featured: false,
   },
   {
-    title: 'Weather Dashboard',
+    title: 'Eloupra QR Scanner App',
     description:
-      'Location-based weather app with forecasts, charts, and responsive mobile layout.',
-    tags: ['JavaScript', 'API', 'CSS'],
+      'Cross-platform React Native app with QR validation, Laravel API integration, and real-time data synchronization.',
+    tags: ['React Native', 'Laravel API', 'MySQL'],
+    image: stackImg,
     liveUrl: '#',
     githubUrl: '#',
-    featured: false,
   },
 ]
 
 export const navLinks = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
+  { id: 'services', label: 'Services' },
   { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
   { id: 'contact', label: 'Contact' },
 ]

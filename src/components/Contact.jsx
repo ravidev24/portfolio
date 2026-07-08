@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { HiMail, HiLocationMarker, HiPaperAirplane } from 'react-icons/hi'
+import { FaWhatsapp } from 'react-icons/fa'
+import Section from './Section'
+import SectionHeader from './SectionHeader'
+import CardGrid from './CardGrid'
+import HighlightCard from './HighlightCard'
+import SocialLinks from './SocialLinks'
 import { profile } from '../data/portfolio'
 
 export default function Contact() {
@@ -15,101 +21,98 @@ export default function Contact() {
   const handleSubmit = async (event) => {
     event.preventDefault()
     setLoading(true)
-
-    await new Promise((resolve) => setTimeout(resolve, 800))
-
-    toast.success('Message sent! I will get back to you soon.')
+    await new Promise((resolve) => setTimeout(resolve, 700))
+    toast.success('Message sent successfully!')
     setForm({ name: '', email: '', message: '' })
     setLoading(false)
   }
 
   return (
-    <section id="contact" className="section-padding bg-surface-elevated/50">
+    <Section id="contact" variant="cyan">
       <Toaster
         position="top-right"
         toastOptions={{
           style: {
-            background: '#16161f',
+            background: '#151d28',
             color: '#fff',
-            border: '1px solid rgba(255,255,255,0.08)',
+            border: '1px solid rgba(16, 185, 129, 0.2)',
           },
         }}
       />
 
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-12 max-w-2xl">
-          <p className="mb-2 text-sm font-medium uppercase tracking-[0.2em] text-accent-light">
-            Contact
-          </p>
-          <h2 className="font-display text-3xl font-bold md:text-4xl">
-            Let&apos;s work together
-          </h2>
-          <p className="mt-4 text-muted">
-            Have a project in mind or want to collaborate? Send a message and I&apos;ll
-            reply as soon as possible.
-          </p>
-        </div>
+      <SectionHeader eyebrow="Contact" title="Get In Touch" index="07" />
 
-        <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
-          <div className="space-y-4">
+      <CardGrid>
+        <HighlightCard>
+          <div className="flex h-full flex-col justify-center space-y-5">
+            <p className="text-base leading-relaxed text-muted">
+              Have a project in mind or want to collaborate? Reach out — I&apos;ll reply as soon as
+              possible.
+            </p>
+
             <a
               href={`mailto:${profile.email}`}
-              className="glass flex items-center gap-4 rounded-2xl p-5 transition hover:border-accent/30"
+              className="flex items-center gap-3 rounded-xl border border-border bg-accent/10 p-4 transition hover:border-accent-light"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/20 text-accent-light">
-                <HiMail size={22} />
-              </span>
-              <div>
-                <p className="text-sm text-muted">Email</p>
-                <p className="font-medium text-white">{profile.email}</p>
-              </div>
+              <HiMail className="text-xl text-accent-light" />
+              <span className="text-sm text-white">{profile.email}</span>
             </a>
 
-            <div className="glass flex items-center gap-4 rounded-2xl p-5">
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-highlight/20 text-highlight">
-                <HiLocationMarker size={22} />
-              </span>
+            <a
+              href={profile.social.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-3 rounded-xl border border-border bg-emerald-500/10 p-4 transition hover:border-emerald-400"
+            >
+              <FaWhatsapp className="text-xl text-emerald-400" />
+              <span className="text-sm text-white">WhatsApp: {profile.phoneDisplay}</span>
+            </a>
+
+            <div className="flex items-center gap-3 rounded-xl border border-border p-4">
+              <HiLocationMarker className="text-xl text-cyan" />
+              <span className="text-sm text-muted">{profile.location}</span>
+            </div>
+
+            <SocialLinks className="flex gap-3 pt-2" />
+          </div>
+        </HighlightCard>
+
+        <HighlightCard>
+          <form onSubmit={handleSubmit} className="flex h-full flex-col space-y-5">
+            <div className="grid gap-5 sm:grid-cols-2">
               <div>
-                <p className="text-sm text-muted">Location</p>
-                <p className="font-medium text-white">{profile.location}</p>
+                <label htmlFor="name" className="mb-2 block text-sm text-muted">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  value={form.name}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-white outline-none transition focus:border-accent-light"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="mb-2 block text-sm text-muted">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-white outline-none transition focus:border-accent-light"
+                  placeholder={profile.email}
+                />
               </div>
             </div>
-          </div>
 
-          <form onSubmit={handleSubmit} className="glass space-y-4 rounded-2xl p-6 md:p-8">
-            <div>
-              <label htmlFor="name" className="mb-2 block text-sm text-muted">
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                value={form.name}
-                onChange={handleChange}
-                className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-white outline-none transition focus:border-accent-light"
-                placeholder="Your name"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="mb-2 block text-sm text-muted">
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                value={form.email}
-                onChange={handleChange}
-                className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-white outline-none transition focus:border-accent-light"
-                placeholder="you@example.com"
-              />
-            </div>
-
-            <div>
+            <div className="flex-1">
               <label htmlFor="message" className="mb-2 block text-sm text-muted">
                 Message
               </label>
@@ -121,21 +124,21 @@ export default function Contact() {
                 value={form.message}
                 onChange={handleChange}
                 className="w-full resize-none rounded-xl border border-border bg-surface px-4 py-3 text-white outline-none transition focus:border-accent-light"
-                placeholder="Tell me about your project..."
+                placeholder="Your message..."
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-accent-light disabled:cursor-not-allowed disabled:opacity-70 md:w-auto"
+              className="inline-flex w-fit items-center gap-2 rounded-full bg-accent px-7 py-3 text-sm font-semibold text-surface transition hover:bg-accent-light disabled:opacity-70"
             >
               <HiPaperAirplane />
               {loading ? 'Sending...' : 'Send Message'}
             </button>
           </form>
-        </div>
-      </div>
-    </section>
+        </HighlightCard>
+      </CardGrid>
+    </Section>
   )
 }

@@ -1,38 +1,59 @@
-import { about } from '../data/portfolio'
+import Section from './Section'
+import SectionHeader from './SectionHeader'
+import CardGrid from './CardGrid'
+import HighlightCard from './HighlightCard'
+import { about, stats } from '../data/portfolio'
 
 export default function About() {
   return (
-    <section id="about" className="section-padding">
-      <div className="mx-auto max-w-6xl" data-aos="fade-up">
-        <div className="mb-12 max-w-2xl">
-          <p className="mb-2 text-sm font-medium uppercase tracking-[0.2em] text-accent-light">
-            About Me
-          </p>
-          <h2 className="font-display text-3xl font-bold md:text-4xl">
-            Building digital products with care
-          </h2>
-        </div>
+    <Section id="about" variant="emerald">
+      <SectionHeader eyebrow={about.eyebrow} title={about.title} index="01" />
 
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-          <div className="space-y-5 text-base leading-relaxed text-muted md:text-lg">
+      <CardGrid>
+        <HighlightCard>
+          <div className="relative overflow-hidden rounded-xl">
+            <img
+              src={about.image}
+              alt="Developer at work"
+              className="aspect-[4/3] w-full object-cover transition duration-700 hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-linear-to-tr from-accent/15 via-transparent to-cyan/10" />
+          </div>
+        </HighlightCard>
+
+        <HighlightCard>
+          <div className="flex h-full flex-col justify-center space-y-5">
             {about.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+              <p key={paragraph} className="text-base leading-relaxed text-muted md:text-lg">
+                {paragraph}
+              </p>
             ))}
+            <div className="flex flex-wrap gap-3 pt-2">
+              {['Laravel', 'MERN Stack', 'React Native', 'Redis', 'WebSockets'].map((tag) => (
+                <span key={tag} className="tag-green rounded-full px-4 py-1.5 text-xs font-medium">
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
+        </HighlightCard>
+      </CardGrid>
 
-          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-            {about.highlights.map((item) => (
-              <div
-                key={item.label}
-                className="glass rounded-2xl p-6 transition hover:border-accent/30"
-              >
-                <p className="text-3xl font-bold text-white">{item.value}</p>
-                <p className="mt-1 text-sm text-muted">{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+      <CardGrid className="mt-8">
+        {stats.map((item) => (
+          <HighlightCard key={item.label}>
+            <div className="flex h-full flex-col items-center justify-center py-4 text-center md:py-6">
+              <p className="stat-value font-display text-5xl font-extrabold text-gradient md:text-6xl">
+                {item.value}
+              </p>
+              <p className="mt-2 font-display text-lg font-semibold text-white md:text-xl">
+                {item.label}
+              </p>
+              <p className="mt-2 text-sm text-muted">{item.description}</p>
+            </div>
+          </HighlightCard>
+        ))}
+      </CardGrid>
+    </Section>
   )
 }

@@ -1,78 +1,79 @@
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa'
-import { projects } from '../data/portfolio'
-
-export default function Projects() {
-  return (
-    <section id="projects" className="section-padding">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-2xl">
-            <p className="mb-2 text-sm font-medium uppercase tracking-[0.2em] text-accent-light">
-              Projects
-            </p>
-            <h2 className="font-display text-3xl font-bold md:text-4xl">
-              Selected work & experiments
-            </h2>
-          </div>
-          <p className="max-w-md text-sm text-muted">
-            A few projects that reflect how I think about design, performance, and
-            maintainable code.
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
-            <article
-              key={project.title}
-              className="group glass flex flex-col rounded-2xl p-6 transition hover:-translate-y-1 hover:border-accent/30"
-            >
-              <div className="mb-4 flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="font-display text-xl font-semibold text-white">
-                    {project.title}
-                  </h3>
-                  {project.featured && (
-                    <span className="mt-2 inline-block rounded-full bg-accent/20 px-2.5 py-0.5 text-xs font-medium text-accent-light">
-                      Featured
-                    </span>
-                  )}
-                </div>
-                <div className="flex gap-2">
-                  <a
-                    href={project.githubUrl}
-                    className="rounded-lg border border-border p-2 text-muted transition hover:border-accent-light hover:text-white"
-                    aria-label={`${project.title} GitHub`}
-                  >
-                    <FaGithub size={16} />
-                  </a>
-                  <a
-                    href={project.liveUrl}
-                    className="rounded-lg border border-border p-2 text-muted transition hover:border-accent-light hover:text-white"
-                    aria-label={`${project.title} live demo`}
-                  >
-                    <FaExternalLinkAlt size={14} />
-                  </a>
-                </div>
-              </div>
-
-              <p className="mb-5 flex-1 text-sm leading-relaxed text-muted">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-md bg-white/5 px-2.5 py-1 text-xs text-muted"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
+import { FaExternalLinkAlt } from 'react-icons/fa'
+import Section from './Section'
+import SectionHeader from './SectionHeader'
+import CardGrid from './CardGrid'
+import HighlightCard from './HighlightCard'
+import { projects } from '../data/portfolio'
+
+const projectRows = []
+for (let i = 0; i < projects.length; i += 2) {
+  projectRows.push(projects.slice(i, i + 2))
+}
+
+function ProjectCard({ project }) {
+  return (
+    <HighlightCard>
+      <div className="flex h-full flex-col">
+        <div className="relative mb-5 overflow-hidden rounded-xl">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="aspect-video w-full object-cover transition duration-500 hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-linear-to-t from-surface/50 via-transparent to-transparent" />
+        </div>
+
+        <h3 className="font-display text-xl font-semibold text-white">{project.title}</h3>
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-muted md:text-base">
+          {project.description}
+        </p>
+
+        <p className="mt-4 text-xs font-semibold tracking-wider text-muted uppercase">
+          Created With:
+        </p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span key={tag} className="tag-green rounded-md px-2.5 py-1 text-xs">
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {project.liveUrl !== '#' && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan transition hover:text-violet"
+          >
+            Live Demo
+            <FaExternalLinkAlt size={12} />
+          </a>
+        )}
+      </div>
+    </HighlightCard>
+  )
+}
+
+export default function Projects() {
+  return (
+    <Section id="projects" variant="emerald">
+      <SectionHeader
+        eyebrow="What I've Built"
+        title="My Projects"
+        subtitle="A collection of real-world applications built across the full stack."
+        index="04"
+      />
+
+      <div className="flex flex-col gap-6 md:gap-8">
+        {projectRows.map((row, rowIndex) => (
+          <CardGrid key={rowIndex} interactive>
+            {row.map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
+          </CardGrid>
+        ))}
+      </div>
+    </Section>
+  )
+}
