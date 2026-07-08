@@ -22,7 +22,13 @@ export default function App() {
       once: true,
       easing: 'ease-out-cubic',
     })
-    window.addEventListener('load', () => AOS.refresh())
+
+    const handleLoad = () => AOS.refresh()
+    window.addEventListener('load', handleLoad)
+
+    return () => {
+      window.removeEventListener('load', handleLoad)
+    }
   }, [])
 
   return (
