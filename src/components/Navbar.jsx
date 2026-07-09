@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-scroll'
-import { HiEye, HiMenuAlt3, HiX } from 'react-icons/hi'
+import { HiDocumentText, HiMenuAlt3, HiX } from 'react-icons/hi'
 import clsx from 'clsx'
 import { navLinks } from '../data/portfolio'
 import { useResume } from '../context/ResumeContext'
@@ -76,8 +76,9 @@ export default function Navbar() {
             <button
               type="button"
               onClick={openResume}
-              className="cursor-pointer rounded-lg px-3.5 py-2 text-sm font-medium text-muted transition hover:text-white"
+              className="flex cursor-pointer items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium text-muted transition hover:text-white"
             >
+              <HiDocumentText size={15} />
               Resume
             </button>
           </li>
@@ -89,7 +90,7 @@ export default function Navbar() {
             onClick={openResume}
             className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-border px-4 py-2.5 text-sm font-semibold text-white transition hover:border-accent-light hover:bg-white/5"
           >
-            <HiEye size={16} />
+            <HiDocumentText size={16} />
             Resume
           </button>
           <Link
@@ -152,7 +153,7 @@ export default function Navbar() {
                 onClick={handleResumeClick}
                 className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-border px-4 py-3 text-sm font-semibold text-white"
               >
-                <HiEye size={16} />
+                <HiDocumentText size={16} />
                 View Resume
               </button>
               <Link

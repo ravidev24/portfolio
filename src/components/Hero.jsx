@@ -1,6 +1,6 @@
 import { Link } from 'react-scroll'
 import { TypeAnimation } from 'react-type-animation'
-import { HiArrowRight, HiEye, HiMail } from 'react-icons/hi'
+import { HiArrowRight, HiDocumentText, HiMail } from 'react-icons/hi'
 import ScrollReveal from './ScrollReveal'
 import CodingFrame from './CodingFrame'
 import { useResume } from '../context/ResumeContext'
@@ -80,7 +80,7 @@ export default function Hero() {
                 onClick={openResume}
                 className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-cyan/30 px-6 py-3.5 text-sm font-semibold text-cyan transition hover:border-cyan hover:bg-cyan/10"
               >
-                <HiEye size={16} />
+                <HiDocumentText size={16} />
                 Resume
               </button>
             </div>
