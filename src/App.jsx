@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { ResumeProvider } from './context/ResumeContext'
 import Background from './components/Background'
 import ScrollProgress from './components/ScrollProgress'
 import Navbar from './components/Navbar'
@@ -11,7 +12,6 @@ import Showcase from './components/Showcase'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
-import Resume from './components/Resume'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -33,22 +33,23 @@ export default function App() {
   }, [])
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
-      <Background />
-      <ScrollProgress />
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <Showcase />
-        <Projects />
-        <Skills />
-        <Experience />
-        <Resume />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <ResumeProvider>
+      <div className="relative min-h-screen overflow-x-hidden">
+        <Background />
+        <ScrollProgress />
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Services />
+          <Showcase />
+          <Projects />
+          <Skills />
+          <Experience />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </ResumeProvider>
   )
 }

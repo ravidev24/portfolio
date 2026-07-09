@@ -40,7 +40,7 @@ export default function Contact() {
         }}
       />
 
-      <SectionHeader eyebrow="Contact" title="Get In Touch" index="08" />
+      <SectionHeader eyebrow="Contact" title="Get In Touch" index="07" />
 
       <CardGrid>
         <HighlightCard>

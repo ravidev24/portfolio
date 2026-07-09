@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-scroll'
-import { HiDownload, HiMenuAlt3, HiX } from 'react-icons/hi'
+import { HiEye, HiMenuAlt3, HiX } from 'react-icons/hi'
 import clsx from 'clsx'
-import { navLinks, profile } from '../data/portfolio'
+import { navLinks } from '../data/portfolio'
+import { useResume } from '../context/ResumeContext'
 
 export default function Navbar() {
+  const { openResume } = useResume()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
@@ -21,6 +23,11 @@ export default function Navbar() {
       document.body.style.overflow = ''
     }
   }, [open])
+
+  const handleResumeClick = () => {
+    setOpen(false)
+    openResume()
+  }
 
   return (
     <header
@@ -65,17 +72,26 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
+          <li>
+            <button
+              type="button"
+              onClick={openResume}
+              className="cursor-pointer rounded-lg px-3.5 py-2 text-sm font-medium text-muted transition hover:text-white"
+            >
+              Resume
+            </button>
+          </li>
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href={profile.resumeUrl}
-            download={profile.resumeFileName}
+          <button
+            type="button"
+            onClick={openResume}
             className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-border px-4 py-2.5 text-sm font-semibold text-white transition hover:border-accent-light hover:bg-white/5"
           >
-            <HiDownload size={16} />
+            <HiEye size={16} />
             Resume
-          </a>
+          </button>
           <Link
             to="contact"
             smooth
@@ -121,16 +137,24 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
+            <li>
+              <button
+                type="button"
+                onClick={handleResumeClick}
+                className="block w-full cursor-pointer rounded-lg px-3 py-3 text-left text-base font-medium text-muted transition hover:bg-white/5 hover:text-white"
+              >
+                Resume
+              </button>
+            </li>
             <li className="pt-2 flex flex-col gap-2">
-              <a
-                href={profile.resumeUrl}
-                download={profile.resumeFileName}
-                onClick={() => setOpen(false)}
+              <button
+                type="button"
+                onClick={handleResumeClick}
                 className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-border px-4 py-3 text-sm font-semibold text-white"
               >
-                <HiDownload size={16} />
-                Download Resume
-              </a>
+                <HiEye size={16} />
+                View Resume
+              </button>
               <Link
                 to="contact"
                 smooth

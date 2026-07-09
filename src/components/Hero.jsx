@@ -1,11 +1,13 @@
 import { Link } from 'react-scroll'
 import { TypeAnimation } from 'react-type-animation'
-import { HiArrowRight, HiMail } from 'react-icons/hi'
+import { HiArrowRight, HiEye, HiMail } from 'react-icons/hi'
 import ScrollReveal from './ScrollReveal'
 import CodingFrame from './CodingFrame'
+import { useResume } from '../context/ResumeContext'
 import { codeSnippets, media, profile } from '../data/portfolio'
 
 export default function Hero() {
+  const { openResume } = useResume()
   const roleSequence = profile.roles.flatMap((role) => [role, 1800]).slice(0, -1)
 
   return (
@@ -73,15 +75,14 @@ export default function Hero() {
               >
                 Explore Services
               </Link>
-              <Link
-                to="resume"
-                smooth
-                offset={-80}
-                duration={600}
+              <button
+                type="button"
+                onClick={openResume}
                 className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-cyan/30 px-6 py-3.5 text-sm font-semibold text-cyan transition hover:border-cyan hover:bg-cyan/10"
               >
+                <HiEye size={16} />
                 Resume
-              </Link>
+              </button>
             </div>
           </ScrollReveal>
 
