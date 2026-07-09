@@ -450,6 +450,10 @@
 
 .is-focused .slot-expanded .portfolio-card {
   transform: none;
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.2),
+    0 0 36px -8px rgba(5, 150, 105, 0.35);
 }
 
 .is-focused .slot-expanded .portfolio-card.card-hover-active {
@@ -634,6 +638,16 @@
   white-space: pre;
 }
 
+.project-card-banner {
+  min-height: 5.5rem;
+}
+
 .resume-preview {
   box-shadow: 0 0 40px -12px rgba(5, 150, 105, 0.25);
+}
+
+@media (min-width: 768px) {
+  .card-grid {
+    gap: 1.25rem;
+  }
 }

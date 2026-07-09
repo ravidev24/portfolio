@@ -1,16 +1,12 @@
 import fullstackImg from '../assets/fullstack.jpg'
 import reviewVideo from '../assets/review.mp4'
-import portfolioImg from '../assets/portfolio.avif'
 import stackImg from '../assets/stack2.jpg'
-import fsdImg from '../assets/fsdwebp.webp'
 import resumePdf from '../assets/ravi_mern.pdf'
 
 export const media = {
   fullstack: fullstackImg,
   review: reviewVideo,
-  portfolio: portfolioImg,
   stack: stackImg,
-  fsd: fsdImg,
 }
 
 export const profile = {
@@ -121,7 +117,6 @@ export const projects = [
     description:
       'Enterprise content management platform with dynamic modules, admin controls, and role-based access. OAuth-secured APIs with Redis caching for high performance.',
     tags: ['Laravel', 'React.js', 'MySQL', 'OAuth', 'Redis'],
-    image: portfolioImg,
     liveUrl: '#',
     githubUrl: '#',
   },
@@ -130,7 +125,6 @@ export const projects = [
     description:
       'Configurable multi-level approval engine with real-time notifications via WebSockets and Redis Pub/Sub, plus live React dashboards for tracking.',
     tags: ['Laravel', 'React.js', 'WebSockets', 'Redis'],
-    image: fsdImg,
     liveUrl: '#',
     githubUrl: '#',
   },
@@ -139,7 +133,6 @@ export const projects = [
     description:
       'MERN stack parking management with vehicle tracking, slot management, reservations, and responsive admin dashboards.',
     tags: ['MongoDB', 'Express.js', 'React.js', 'Node.js'],
-    image: fullstackImg,
     liveUrl: '#',
     githubUrl: '#',
   },
@@ -148,7 +141,6 @@ export const projects = [
     description:
       'Cross-platform React Native app with QR validation, Laravel API integration, and real-time data synchronization.',
     tags: ['React Native', 'Laravel API', 'MySQL'],
-    image: stackImg,
     liveUrl: '#',
     githubUrl: '#',
   },

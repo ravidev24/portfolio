@@ -15,6 +15,8 @@ export default function About() {
             <img
               src={about.image}
               alt="Developer at work"
+              loading="lazy"
+              decoding="async"
               className="aspect-[4/3] w-full object-cover transition duration-700 hover:scale-105"
             />
             <div className="absolute inset-0 bg-linear-to-tr from-accent/15 via-transparent to-cyan/10" />

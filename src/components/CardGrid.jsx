@@ -19,6 +19,8 @@ export default function CardGrid({ children, className = '', interactive = false
       {items.map((child, index) => (
         <div
           key={index}
+          role="button"
+          tabIndex={0}
           className={clsx(
             'interactive-card-slot',
             !isFocused && 'slot-equal',
@@ -26,6 +28,13 @@ export default function CardGrid({ children, className = '', interactive = false
             isFocused && activeIndex !== index && 'slot-preview',
           )}
           onMouseEnter={() => setActiveIndex(index)}
+          onClick={() => setActiveIndex(index)}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault()
+              setActiveIndex(index)
+            }
+          }}
         >
           <div className="interactive-card-inner">{child}</div>
         </div>
