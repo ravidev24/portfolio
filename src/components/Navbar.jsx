@@ -72,16 +72,6 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
-          <li>
-            <button
-              type="button"
-              onClick={openResume}
-              className="flex cursor-pointer items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium text-muted transition hover:text-white"
-            >
-              <HiDocumentText size={15} />
-              Resume
-            </button>
-          </li>
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -138,15 +128,6 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
-            <li>
-              <button
-                type="button"
-                onClick={handleResumeClick}
-                className="block w-full cursor-pointer rounded-lg px-3 py-3 text-left text-base font-medium text-muted transition hover:bg-white/5 hover:text-white"
-              >
-                Resume
-              </button>
-            </li>
             <li className="pt-2 flex flex-col gap-2">
               <button
                 type="button"
