@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-scroll'
-import { HiMenuAlt3, HiX } from 'react-icons/hi'
+import { HiDownload, HiMenuAlt3, HiX } from 'react-icons/hi'
 import clsx from 'clsx'
-import { navLinks } from '../data/portfolio'
+import { navLinks, profile } from '../data/portfolio'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -67,15 +67,25 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <Link
-          to="contact"
-          smooth
-          offset={-80}
-          duration={600}
-          className="hidden cursor-pointer rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-surface transition hover:bg-accent-light hover:shadow-lg hover:shadow-accent/25 lg:inline-flex"
-        >
-          Contact
-        </Link>
+        <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href={profile.resumeUrl}
+            download={profile.resumeFileName}
+            className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-border px-4 py-2.5 text-sm font-semibold text-white transition hover:border-accent-light hover:bg-white/5"
+          >
+            <HiDownload size={16} />
+            Resume
+          </a>
+          <Link
+            to="contact"
+            smooth
+            offset={-80}
+            duration={600}
+            className="cursor-pointer rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-surface transition hover:bg-accent-light hover:shadow-lg hover:shadow-accent/25"
+          >
+            Contact
+          </Link>
+        </div>
 
         <button
           type="button"
@@ -111,7 +121,16 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
-            <li className="pt-2">
+            <li className="pt-2 flex flex-col gap-2">
+              <a
+                href={profile.resumeUrl}
+                download={profile.resumeFileName}
+                onClick={() => setOpen(false)}
+                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-border px-4 py-3 text-sm font-semibold text-white"
+              >
+                <HiDownload size={16} />
+                Download Resume
+              </a>
               <Link
                 to="contact"
                 smooth

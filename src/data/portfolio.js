@@ -3,6 +3,7 @@ import reviewVideo from '../assets/review.mp4'
 import portfolioImg from '../assets/portfolio.avif'
 import stackImg from '../assets/stack2.jpg'
 import fsdImg from '../assets/fsdwebp.webp'
+import resumePdf from '../assets/ravi_mern.pdf'
 
 export const media = {
   fullstack: fullstackImg,
@@ -31,7 +32,8 @@ export const profile = {
     whatsapp:
       'https://wa.me/916379517503?text=Hi%20Ravichandran%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you.',
   },
-  resumeUrl: '#',
+  resumeUrl: resumePdf,
+  resumeFileName: 'Ravichandran_Resume.pdf',
 }
 
 export const about = {
@@ -158,5 +160,14 @@ export const navLinks = [
   { id: 'services', label: 'Services' },
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
+  { id: 'resume', label: 'Resume' },
   { id: 'contact', label: 'Contact' },
 ]
+
+export const codeSnippets = {
+  hero: `export const initPortfolio = async () => {
+  const dev = createDeveloper('Ravichandran');
+  const stack = ['Laravel', 'React', 'Node'];
+  return dev.build({ location: 'Chennai', stack });
+};`,
+}

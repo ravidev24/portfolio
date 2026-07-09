@@ -497,3 +497,143 @@
     pointer-events: auto;
   }
 }
+
+.coding-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  background: #0a1018;
+}
+
+.coding-frame-media {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.coding-frame:hover .coding-frame-media {
+  transform: scale(1.04);
+}
+
+.coding-frame-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.coding-frame-scan {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(34, 211, 238, 0.06) 50%,
+    transparent 100%
+  );
+  background-size: 100% 200%;
+  animation: code-scan 6s linear infinite;
+  pointer-events: none;
+  z-index: 3;
+}
+
+@keyframes code-scan {
+  from {
+    background-position: 0 -100%;
+  }
+  to {
+    background-position: 0 100%;
+  }
+}
+
+.coding-frame-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 4;
+  padding: 0.75rem;
+  background: linear-gradient(to top, rgba(8, 12, 16, 0.95), transparent);
+  pointer-events: none;
+}
+
+.code-editor-panel {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  background: rgba(8, 14, 22, 0.92);
+  backdrop-filter: blur(8px);
+  font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+  font-size: 0.65rem;
+  line-height: 1.45;
+}
+
+@media (min-width: 768px) {
+  .code-editor-panel {
+    font-size: 0.72rem;
+  }
+}
+
+.code-editor-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-bottom: 1px solid rgba(34, 211, 238, 0.15);
+  padding: 0.4rem 0.6rem;
+}
+
+.code-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 9999px;
+}
+
+.code-dot-red {
+  background: #ef4444;
+}
+
+.code-dot-yellow {
+  background: #eab308;
+}
+
+.code-dot-green {
+  background: #22c55e;
+}
+
+.code-editor-file {
+  margin-left: 0.35rem;
+  color: #8b9cb3;
+  font-size: 0.62rem;
+}
+
+.code-editor-body {
+  margin: 0;
+  padding: 0.45rem 0;
+  overflow: hidden;
+}
+
+.code-line {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 0.6rem;
+}
+
+.code-line-no {
+  width: 1rem;
+  flex-shrink: 0;
+  text-align: right;
+  color: rgba(139, 156, 179, 0.5);
+  user-select: none;
+}
+
+.code-line-text {
+  color: #a5f3fc;
+  white-space: pre;
+}
+
+.resume-preview {
+  box-shadow: 0 0 40px -12px rgba(5, 150, 105, 0.25);
+}

@@ -2,7 +2,8 @@ import { Link } from 'react-scroll'
 import { TypeAnimation } from 'react-type-animation'
 import { HiArrowRight, HiMail } from 'react-icons/hi'
 import ScrollReveal from './ScrollReveal'
-import { media, profile } from '../data/portfolio'
+import CodingFrame from './CodingFrame'
+import { codeSnippets, media, profile } from '../data/portfolio'
 
 export default function Hero() {
   const roleSequence = profile.roles.flatMap((role) => [role, 1800]).slice(0, -1)
@@ -72,6 +73,15 @@ export default function Hero() {
               >
                 Explore Services
               </Link>
+              <Link
+                to="resume"
+                smooth
+                offset={-80}
+                duration={600}
+                className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-cyan/30 px-6 py-3.5 text-sm font-semibold text-cyan transition hover:border-cyan hover:bg-cyan/10"
+              >
+                Resume
+              </Link>
             </div>
           </ScrollReveal>
 
@@ -89,13 +99,14 @@ export default function Hero() {
         <ScrollReveal animation="fade-left" delay={300} duration={1000}>
           <div className="card-3d relative mx-auto w-full max-w-md lg:max-w-none">
             <div className="card-3d-inner section-panel !p-0 overflow-hidden">
-              <img
+              <CodingFrame
                 src={media.fullstack}
                 alt="Full stack development workspace"
-                className="aspect-[4/3] w-full object-cover"
+                snippet={codeSnippets.hero}
+                fileName="portfolio.js"
+                aspect="aspect-[4/3]"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-surface via-transparent to-transparent" />
-              <div className="absolute right-4 bottom-4 left-4 rounded-2xl border border-white/10 bg-black/50 p-4 backdrop-blur-md">
+              <div className="border-t border-white/10 bg-black/40 p-4 backdrop-blur-md">
                 <p className="text-sm font-semibold text-white">{profile.title}</p>
                 <p className="text-xs text-muted">
                   {profile.company} · {profile.location}
