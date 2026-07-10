@@ -30,6 +30,7 @@ export const profile = {
   },
   resumeUrl: resumePdf,
   resumeFileName: 'Ravichandran_Resume.pdf',
+  siteUrl: 'https://ravichandran-dev.vercel.app/',
 }
 
 export const about = {

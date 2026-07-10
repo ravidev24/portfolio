@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ravichandran-dev.vercel.app/sitemap.xml
